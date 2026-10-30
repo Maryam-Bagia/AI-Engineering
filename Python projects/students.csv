@@ -1,0 +1,11 @@
+id,name,age,email,department,marks,fee,join_date
+1,Aarav Shah,19,aarav@gmail.com,Computer,78,25000,2023-06-15
+2,Diya Patel,20,diya@gmail.com,IT,85,25000,2023-06-16
+3,Kabir Mehta,-3,kabir.gmail.com,Computer,92,25000,2023-06-17
+4,Isha Desai,21,isha@yahoo.com,Civil,,22000,2023-06-18
+5,Rohan Joshi,19,rohan@gmail.com,Mechanical,67,N/A,2023-06-19
+6,Diya Patel,20,diya@gmail.com,IT,85,25000,2023-06-16
+7,Meera Trivedi,150,meera@gmail.com,IT,105,25000,not a date
+8,Yash Modi,20,yash@gmail.com, Computer ,55,25000,2023-06-21
+9,Neha Vora,19,,Civil,73,22000,2023-06-22
+10,Dev Parmar,22,dev@gmail.com,Mechanical,300,30000,2023-06-23

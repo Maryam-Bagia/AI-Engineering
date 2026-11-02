@@ -1,37 +1,69 @@
 import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 
-# Data: Episodes or mission deployment points of ERPB in 'Teach You a Lesson'
-episodes = [
-    'Ep 1: Politician\'s Son',
-    'Ep 2: School Gangs',
-    'Ep 3: Influencer Fraud',
-    'Ep 4: Elite Med-School',
-    'Ep 5: Systemic Reform'
-]
+# Sample data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+categories = ['A', 'B', 'C', 'D']
+values = [10, 24, 36, 40]
+random_data = np.random.randn(100)
+df = sns.load_dataset("tips")  # Built-in seaborn dataset
 
-# Number of disciplinary actions / interventions handled by ERPB inspectors
-interventions_count = [12, 19, 8, 15, 24]
+# 1. Line Plot
+plt.figure(figsize=(10, 5))
+plt.plot(x, y, label='Sine Wave', color='blue')
+plt.title("Line Plot")
+plt.xlabel("x")
+plt.ylabel("sin(x)")
+plt.legend()
+plt.grid(True)
+plt.show()
 
-# Create figure and axis
-plt.figure(figsize=(9, 5))
+# 2. Bar Plot
+plt.figure(figsize=(6, 4))
+plt.bar(categories, values, color='teal')
+plt.title("Bar Plot")
+plt.ylabel("Values")
+plt.show()
 
-# Plot bar chart
-bars = plt.bar(episodes, interventions_count, color='#1f77b4', edgecolor='black', alpha=0.85)
+# 3. Histogram
+plt.figure(figsize=(6, 4))
+plt.hist(random_data, bins=20, color='orange', edgecolor='black')
+plt.title("Histogram")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.show()
 
-# Customize chart details
-plt.title('ERPB Interventions Across Episodes - "Teach You a Lesson"', fontsize=14, fontweight='bold', pad=15)
-plt.xlabel('Series Episodes / Focus Areas', fontsize=11, labelpad=10)
-plt.ylabel('Number of Disciplinary Actions', fontsize=11, labelpad=10)
-plt.grid(axis='y', linestyle='--', alpha=0.5)
+# 4. Scatter Plot
+plt.figure(figsize=(6, 4))
+plt.scatter(df['total_bill'], df['tip'], alpha=0.7, color='purple')
+plt.title("Scatter Plot")
+plt.xlabel("Total Bill")
+plt.ylabel("Tip")
+plt.show()
 
-# Add data values on top of the bars
-for bar in bars:
-    yval = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width()/2.0, yval + 0.5, int(yval), ha='center', va='bottom', fontweight='bold')
+# 5. Box Plot
+plt.figure(figsize=(6, 4))
+sns.boxplot(x='day', y='total_bill', data=df)
+plt.title("Box Plot")
+plt.show()
 
-# Set Y-axis limit to give breathing room for text labels
-plt.ylim(0, 30)
+# 6. Violin Plot
+plt.figure(figsize=(6, 4))
+sns.violinplot(x='day', y='total_bill', data=df)
+plt.title("Violin Plot")
+plt.show()
 
-# Display the plot
-plt.tight_layout()
+# 7. Pie Chart
+plt.figure(figsize=(6, 6))
+plt.pie(values, labels=categories, autopct='%1.1f%%', colors=sns.color_palette('pastel'))
+plt.title("Pie Chart")
+plt.show()
+
+# 8. Heatmap
+plt.figure(figsize=(6, 5))
+correlation = df.corr(numeric_only=True)
+sns.heatmap(correlation, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title("Heatmap")
 plt.show()

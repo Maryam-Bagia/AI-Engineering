@@ -1,7 +1,7 @@
 # Python cache and virtual environment
 __pycache__/
 *.py[cod]
-.venv/
+venv/
 notebooks/.ipynb_checkpoints/
 
 # Streamlit settings
